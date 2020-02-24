@@ -1,5 +1,5 @@
-name: 'GSA/[PROJECT]'
-description: '[PROJECT DESCRIPTION]'
+name: 'GSA/grace-config'
+description: 'Provides a baseline configuration for AWS Config'
 license: cc0-1.0
 openSourceProject: 1
 governmentWideReuseProject: 1
