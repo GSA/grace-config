@@ -165,7 +165,7 @@ resource "aws_config_config_rule" "cloudtrail_cloudwatch_logs_enabled_check" {
 }
 
 resource "aws_config_config_rule" "s3_bucket_logging_enabled_check" {
-  count       = var.enable_s3_bucket_logging_enabled_check && length(access_logging_bucket) > 0 ? 1 : 0
+  count       = var.enable_s3_bucket_logging_enabled_check && length(var.access_logging_bucket) > 0 ? 1 : 0
   name        = "s3-bucket-logging-enabled-check"
   description = "Checks whether logging is enabled for your S3 buckets."
 
