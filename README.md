@@ -11,7 +11,8 @@ GRACE Config sets up AWS Config and provides some baseline AWS Config rules that
 - [Terraform Module Outputs](#terraform-module-outputs)
 
 ## Security Compliance
-The GRACE Alerting subcomponent provides various levels of coverage for several [NIST Special Publication 800-53 (Rev. 4) Security Controls](https://nvd.nist.gov/800-53/Rev4/impact/moderate).  These security controls are designated for [FIPS 199 Moderate Impact Systems](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf). Additional information regarding the implementation method utilized can be found within the [GRACE Component Control Coverage Repository](https://github.com/GSA/grace-ssp/blob/master/README.md).
+The GRACE Config subcomponent provides various levels of coverage for several [NIST Special Publication 800-53 (Rev. 4) Security Controls](https://nvd.nist.gov/800-53/Rev4/impact/moderate).  These security controls are designated for [FIPS 199 Moderate Impact Systems](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf). Additional information regarding the implementation method utilized can be found within the [GRACE Component Control Coverage Repository](https://github.com/GSA/grace-ssp/blob/master/README.md).
+
 **Component ATO status:** draft
 
 **Relevant controls:**
@@ -23,9 +24,6 @@ Control    | CSP/AWS | HOST/OS | App/DB | How is it implemented?
 
 [top](#top)
 
-
-
-[top](#top)
 
 ## Repository contents
 
