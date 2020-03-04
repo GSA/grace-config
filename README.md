@@ -11,17 +11,19 @@ GRACE Config sets up AWS Config and provides some baseline AWS Config rules that
 - [Terraform Module Outputs](#terraform-module-outputs)
 
 ## Security Compliance
+The GRACE Config subcomponent provides various levels of coverage for several [NIST Special Publication 800-53 (Rev. 4) Security Controls](https://nvd.nist.gov/800-53/Rev4/impact/moderate).  These security controls are designated for [FIPS 199 Moderate Impact Systems](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.199.pdf). Additional information regarding the implementation method utilized can be found within the [GRACE Component Control Coverage Repository](https://github.com/GSA/grace-ssp/blob/master/README.md).
 
 **Component ATO status:** draft
 
 **Relevant controls:**
 
-| Control    | CSP/AWS | HOST/OS | App/DB | How is it implemented? |
-| ---------- | ------- | ------- | ------ | ---------------------- |
-
-
+Control    | CSP/AWS | HOST/OS | App/DB | How is it implemented?
+---------- | ------- | ------- | ------ | ----------------------
+[CM-2(3)](https://nvd.nist.gov/800-53/Rev4/control/CM-2#enhancement-3) | ╳ | | | Employs the use of the AWS Config Recorder and Snapshot service to generate and retain system configuration information securely in an S3 bucket. 
+[SI-4(5)](https://nvd.nist.gov/800-53/Rev4/control/SI-4#enhancement-5) | ╳ | | | AWS Config Rules provide partial coverage for identifying and alerting on changes to several system configuration baselines. The Config Rules send any changes in the compliance state of the rule to a CloudWatch Event Rule that generates a notification to the specified target email address.  These Config Rules are checked against configuration settings related to several services and resources, including: IAM, S3, CloudTrail, Config, CloudWatch, and GuardDuty.   
 
 [top](#top)
+
 
 ## Repository contents
 
@@ -69,8 +71,7 @@ module "config" {
 | enable_mfa_enabled_for_iam_users_check | The boolean value indicating whether to check that all IAM Users (console-only) are configured for multi-factor authentication | bool | true | no |
 | enable_iam_inactive_credentials_check | The boolean value indicating whether to check for stale passwords or access keys for all IAM users | bool | true | no |
 | iam_inactive_credentials_days | The number of days before a credential should be considered inactive | number | 90 | no |
-| enable_root_account_mfa_enabled_check | The boolean value indicating whether AWS Config should be enabled | bool | true | no |
-| enable_config | The boolean value indicating whether to check that the root account is configured with multi-factor authentication | bool | true | no |
+| enable_root_account_mfa_enabled_check | The boolean value indicating whether to check that the root account is configured with multi-factor authentication | bool | true | no |
 | enable_access_key_expiration_check | The boolean value indicating whether to check for expired access keys (see access_key_expiration_days) | bool | true | no |
 | access_key_expiration_days | The number of days before an access key is considered expired | number | 90 | no |
 | enable_cloudtrail_logfile_validation_check | The boolean value indicating whether to check that CloudTrail is using a signed digest file | bool | true | no |
