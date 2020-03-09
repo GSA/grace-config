@@ -29,6 +29,7 @@ Control    | CSP/AWS | HOST/OS | App/DB | How is it implemented?
 
 - **config.tf** contains the setup and configuration for AWS Config
 - **rules.tf** contains all of the declarations for AWS Config rules
+- **iam.tf** contains `config-service` IAM role declaration
 - **variables.tf** contains all configurable variables
 - **outputs.tf** contains all Terraform output variables
 

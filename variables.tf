@@ -3,6 +3,11 @@ variable "bucket" {
   description = "(required) The S3 bucket where AWS Config files will be stored"
 }
 
+variable "module_depends_on" {
+  type    = any
+  default = null
+}
+
 variable "bucket_prefix" {
   type        = string
   description = "(optional) The Key prefix used for AWS Config file storage"
