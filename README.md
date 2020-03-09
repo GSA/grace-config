@@ -27,6 +27,7 @@ GRACE Config sets up AWS Config and provides some baseline AWS Config rules that
 
 - **config.tf** contains the setup and configuration for AWS Config
 - **rules.tf** contains all of the declarations for AWS Config rules
+- **iam.tf** contains `config-service` IAM role declaration
 - **variables.tf** contains all configurable variables
 - **outputs.tf** contains all Terraform output variables
 
