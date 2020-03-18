@@ -17,6 +17,7 @@ variable "bucket_prefix" {
 variable "access_logging_bucket" {
   type        = string
   description = "(optional) if provided, this is used during the s3_bucket_logging_enabled_check"
+  default     = ""
 }
 
 variable "enable_config" {
