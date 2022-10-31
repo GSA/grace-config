@@ -11,6 +11,9 @@ jobs:
           name: Install curl
           command: apk add --update curl && apk upgrade
       - run:
+          name: terraform providers
+          command: terraform providers
+      - run:
           name: terraform init
           command: find . -type f -name "*.tf" -exec dirname {} \;|sort -u | while read m; do (cd "$m" && terraform init -input=false -backend=false) || exit 1; done
       - run:
@@ -27,12 +30,12 @@ jobs:
           command: find . -name ".terraform" -prune -o -type f -name "*.tf" -exec dirname {} \;|sort -u | while read m; do (cd "$m" && tflint && echo "√ $m") || exit 1 ; done
   tfsec:
     docker:
-      - image: circleci/golang:latest
+      - image: cimg/go:1.19.2
     steps:
       - checkout
       - run:
           name: Install tfsec
-          command: env GO111MODULE=on go get -u github.com/aquasecurity/tfsec/cmd/tfsec
+          command: env GO111MODULE=on go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
       - run:
           name: Terraform static code analysis with tfsec
           command: tfsec
